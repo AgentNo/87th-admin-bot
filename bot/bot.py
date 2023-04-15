@@ -6,6 +6,9 @@ import discord
 import logging
 from dotenv import load_dotenv
 
+import utility.strings as strings
+import utility.utils as utils
+
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 intents = discord.Intents.default()
@@ -16,7 +19,6 @@ client = discord.Client(intents=intents)
 # Start logger
 log = logging.getLogger()
 log.setLevel('INFO')
-
 handler = logging.StreamHandler()
 handler.setFormatter(logging.Formatter("%(asctime)s [%(levelname)s] %(name)s: %(message)s"))
 log.addHandler(handler)
@@ -28,14 +30,11 @@ async def on_ready():
     for guild in client.guilds:
         log.info(guild.name)
 
-    members = '\n - '.join([member.name for member in guild.members])
-    log.info(members)
-
 
 @client.event
 async def on_member_join(member):
     await member.create_dm()
-    await member.dm_channel.send('cock')
+    await member.dm_channel.send(strings.DM_WELCOME_MESSAGE.format(member.name))
 
 
 # Run the bot
