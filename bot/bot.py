@@ -3,6 +3,7 @@
 
 import os
 import discord
+from discord.ext import commands
 import logging
 from dotenv import load_dotenv
 
@@ -13,7 +14,7 @@ load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 intents = discord.Intents.default()
 intents.members = True
-client = discord.Client(intents=intents)
+bot = discord.Client(intents=intents)
 
 
 # Start logger
@@ -24,18 +25,18 @@ handler.setFormatter(logging.Formatter("%(asctime)s [%(levelname)s] %(name)s: %(
 log.addHandler(handler)
 
 
-@client.event
+@bot.event
 async def on_ready():
-    log.info(f'{client.user} has connected to the following guilds: ' + ', '.join(guild.name for guild in client.guilds))
-    for guild in client.guilds:
+    log.info(f'{bot.user} has connected to the following guilds: ' + ', '.join(guild.name for guild in bot.guilds))
+    for guild in bot.guilds:
         log.info(guild.name)
 
 
-@client.event
+@bot.event
 async def on_member_join(member):
     await member.create_dm()
     await member.dm_channel.send(strings.DM_WELCOME_MESSAGE.format(member.name))
 
 
 # Run the bot
-client.run(TOKEN)
+bot.run(TOKEN)
