@@ -4,11 +4,12 @@
 import os
 import discord
 from discord.ext import commands
+from discord.ext.commands import has_permissions, errors
 import logging
 from dotenv import load_dotenv
 
 import utility.strings as strings
-import utility.utils as utils
+import utility.roles as roles_enums
 
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
@@ -33,24 +34,48 @@ async def on_ready():
 
 @bot.event
 async def on_member_join(member):
+    log.info(member.name + " has joined the 87th. Sending welcome message...")
     await member.create_dm()
     await member.dm_channel.send(strings.DM_WELCOME_MESSAGE.format(member.name))
+    log.info("Welcome message sent to " + member.name + " successfully.")
+
+
+@bot.event
+async def on_message(message):
+    await bot.process_commands(message)
 
 
 # !ping - Health command to ensure bot is responsive to commands and currently operational
-@bot.command(name="heartbeat")
+@bot.command(
+        name="hb",
+        help="Simple heartbeat command to ensure bot is up and running",
+        brief="Prints a message back to the channel"
+        )
 async def ping(ctx):
+    log.info("Heartbeat command triggered")
     await ctx.channel.send("87th Admin Bot is up and running!")
 
 
-# !enlist <user> - Will give the user basic Recruit roles,
-@bot.command(name="enlist")
-async def enlist_member(ctx, *args):
-    response = ""
-    for arg in args:
-        response = response + " " + arg
+# !enlist <user> - Will give the user basic Recruit roles.
+@bot.command(name="enlist",
+        help="Enlist a user. Accepts a single mention of a user as an argument. Can only be successfully invoked by a user with manage roles permission.",
+        brief="Enlists a user to the 87th."
+        )
+@has_permissions(manage_roles=True)
+async def enlist_member(ctx, user: discord.User):
+    log.info(f'Enlist command triggered by user {ctx.author.id} for {user.id}. Attempting to enlist...')
+    for id in roles_enums.ENLISTMENT_ROLES:
+        role = ctx.guild.get_role(id)
+        await ctx.guild.get_member(user.id).add_roles(role)
+        log.info(f'Added role {id} to user {user.id}')
+    await ctx.channel.send(f'<@{user.id}> has been enlisted successfully. Welcome!')
 
-    await ctx.channel.send(response)
+
+# Error handling for !enlist
+@enlist_member.error
+async def enlist_error(ctx, error):
+    if isinstance(error, errors.MissingPermissions):
+        await ctx.channel.send(f'Oi <@{ctx.author.id}>! You don\'t have permission to do that! :angry:')
 
 
 # Run the bot
