@@ -52,8 +52,11 @@ async def on_message(message):
         brief="Prints a message back to the channel"
         )
 async def ping(ctx):
-    log.info("Heartbeat command triggered")
-    await ctx.channel.send("87th Admin Bot is up and running!")
+    try:
+        log.info("Heartbeat command triggered, sending response...")
+        await ctx.channel.send("87th Admin Bot is up and running! :heartpulse:")
+    except Exception as e:
+        log.info(f'Error thrown in !hb - {e}')
 
 
 # !enlist <user> - Will give the user basic Recruit roles.
@@ -64,11 +67,21 @@ async def ping(ctx):
 @has_permissions(manage_roles=True)
 async def enlist_member(ctx, user: discord.User):
     log.info(f'Enlist command triggered by user {ctx.author.id} for {user.id}. Attempting to enlist...')
-    for id in roles_enums.ENLISTMENT_ROLES:
-        role = ctx.guild.get_role(id)
-        await ctx.guild.get_member(user.id).add_roles(role)
-        log.info(f'Added role {id} to user {user.id}')
-    await ctx.channel.send(f'<@{user.id}> has been enlisted successfully. Welcome!')
+    if None != ctx.guild.get_member(user.id).get_role(743156110625603654):
+            log.info(f'Error running command - user {user.id} is already enlisted.')
+            await ctx.channel.send(f':x: I can\'t do that <@{ctx.author.id}> - it looks like <@{user.id}> is already enlisted!')
+    else: 
+        await ctx.guild.get_member(user.id).remove_roles(ctx.guild.get_role(roles_enums.UNASSIGNED_ROLE)) # Remove the 'Unassigned' role
+        for id in roles_enums.ENLISTMENT_ROLES:
+            try:
+                role = ctx.guild.get_role(id)
+                await ctx.guild.get_member(user.id).add_roles(role)
+                log.info(f'Added role {id} to user {user.id}')
+            except Exception as e:
+                await ctx.channel.send(f'Error running command !enlist - {e}. Command failed on role {role}, id = {id}')
+                log.info(f"Error running command !enlist - {e}. Command failed on role {role}, id = {id}")
+        await ctx.channel.send(f'<@{user.id}> has been enlisted successfully. Welcome! :crossed_swords:')
+        log.info(f'{user.id} has been enlisted successfully!')
 
 
 # Error handling for !enlist
