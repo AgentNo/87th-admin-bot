@@ -71,7 +71,8 @@ async def enlist_member(ctx, user: discord.Member):
         log.info(f'Error running command - user {user.id} is already enlisted.')
         await ctx.channel.send(f':x: I can\'t do that <@{ctx.author.id}> - it looks like <@{user.id}> is already enlisted!')
     else: 
-        await ctx.guild.get_member(user.id).remove_roles(ctx.guild.get_role(roles_enums.UNASSIGNED_ROLE_ID)) # Remove the 'Unassigned' role
+        if None != ctx.guild.get_member(user.id).get_role(roles_enums.UNASSIGNED_ROLE_ID):
+            await ctx.guild.get_member(user.id).remove_roles(ctx.guild.get_role(roles_enums.UNASSIGNED_ROLE_ID)) # Remove the 'Unassigned' role
         for id in roles_enums.ENLISTMENT_ROLES_IDs:
             try:
                 role = ctx.guild.get_role(id)
@@ -111,6 +112,8 @@ async def grant_role(ctx, roleType, user: discord.User):
         log.info(f'Error running !grantrole command - user {user.id} is already enlisted in the 87th.')
         await ctx.channel.send(f':x: I can\'t do that <@{ctx.author.id}> - it looks like <@{user.id}> is already enlisted!')
         return
+    if None != ctx.guild.get_member(user.id).get_role(roles_enums.UNASSIGNED_ROLE_ID):
+        await ctx.guild.get_member(user.id).remove_roles(ctx.guild.get_role(roles_enums.UNASSIGNED_ROLE_ID)) # Remove the 'Unassigned' role
     else:
         if str(roleType).lower() not in roles_enums.GRANTROLES_DICT.keys():
             await ctx.channel.send(f"<@{ctx.author.id}>, I don't recognise that role :face_with_monocle:. You can use **merc**, **rep**, or **visitor** as valid options.")
