@@ -43,7 +43,7 @@ async def on_member_join(member):
 @bot.event
 async def on_message(message):
     if 'femboy' in message.content and not message.author.bot:
-        number = random.random(1,100)
+        number = random.uniform(1,100)
         if number < 3:
             await message.channel.send(f'Spammy is not a femboy <@{message.author.id}>. Please stop spreading fake news.')
     await bot.process_commands(message)
