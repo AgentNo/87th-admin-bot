@@ -7,6 +7,7 @@ from discord.ext import commands
 from discord.ext.commands import has_permissions, errors
 import logging
 from dotenv import load_dotenv
+import time
 
 import utility.strings as strings
 import utility.roles as roles_enums
@@ -20,6 +21,7 @@ bot = commands.Bot(intents=intents, command_prefix='!')
 
 
 # Start logger
+startTime = time.time()
 log = logging.getLogger()
 log.setLevel('INFO')
 handler = logging.StreamHandler()
@@ -53,8 +55,9 @@ async def on_message(message):
         )
 async def ping(ctx):
     try:
+        currentTime = time.time()
         log.info("Heartbeat command triggered, sending response...")
-        await ctx.channel.send("87th Admin Bot is up and running! :heartpulse:")
+        await ctx.channel.send(f"87th Admin Bot is up and running! :heartpulse:\nI have been up for {currentTime - startTime} seconds!")
     except Exception as e:
         log.info(f'Error thrown in !hb - {e}')
 
