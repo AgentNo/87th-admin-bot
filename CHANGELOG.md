@@ -1,6 +1,9 @@
 # Changelog for 87th Admin Bot
 Note: This file was started on 2023-04-22. Any changes before then are not captured.
 
+## 2023-04-23
+- Improvements to logging - logs will now record user names as well as IDs
+
 ## 2023-04-22
 - Updated !hb to include uptime
 - Moved logging logic into a seperate util file
