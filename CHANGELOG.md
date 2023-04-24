@@ -1,6 +1,10 @@
 # Changelog for 87th Admin Bot
 Note: This file was started on 2023-04-22. Any changes before then are not captured.
 
+## 2023-04-24
+- Changed permission commands to a more reliable method of validation
+- Tidied the enums.py util
+
 ## 2023-04-23
 - Improvements to logging - logs will now record user names as well as IDs
 
