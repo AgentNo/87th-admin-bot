@@ -1,6 +1,9 @@
 # Changelog for 87th Admin Bot
 Note: This file was started on 2023-04-22. Any changes before then are not captured.
 
+## 2023-04-29
+- Added functionality to automatically add reactions to announcement posts
+
 ## 2023-04-24
 - Changed permission commands to a more reliable method of validation
 - Tidied the enums.py util

@@ -26,3 +26,21 @@ GRANTABLE_ROLES = {
         813521936944463962
     ]
 }
+
+PRIMARY_SIGNUP_REACTIONS = [
+    '<:RegimentalColours:863525506779054120>',
+    '❓',
+    '❌'
+]
+
+SECONDARY_SIGNUP_REACTIONS = [
+    '<:KingsColours:863525505515782184>',
+    '❔',
+    '❎'
+]
+
+TERTIARY_SIGNUP_REACTIONS = [
+    '<:UnionColours:746464693400371220>',
+    '<:Cringe_Pepe:973337254946811935>',
+    '<:crying:816636872960901130>'
+]

@@ -45,6 +45,20 @@ async def on_message(message):
         number = random.uniform(1,100)
         if number < 3:
             await message.channel.send(f'Spammy is not a femboy <@{message.author.id}>. Please stop spreading fake news.')
+
+    # Announcement Logic
+    if message.channel.id == 744708888250810459:
+        content = message.content
+        if 'RegimentalColours' in content:
+            for reaction in enums.PRIMARY_SIGNUP_REACTIONS:
+                await message.add_reaction(reaction)
+        if 'KingsColours' in content:
+             for reaction in enums.SECONDARY_SIGNUP_REACTIONS:
+                await message.add_reaction(reaction)
+        if 'UnionColours' in content:
+             for reaction in enums.TERTIARY_SIGNUP_REACTIONS:
+                await message.add_reaction(reaction)
+
     await bot.process_commands(message)
 
 
