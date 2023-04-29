@@ -1,6 +1,15 @@
 # Changelog for 87th Admin Bot
 Note: This file was started on 2023-04-22. Any changes before then are not captured.
 
+## 2023-04-30
+- Updated README.md
+- Added COMMANDS.md (documentation)
+- !hb now formats the time into a more sensible hh:mm:ss format
+- Re-organised the project to reduce the amount of clutter in bot.py
+- !enlist now sends a confirmation message on invoke
+- Fixed a logging grammar issue in !enlist
+- Fixed several whitespace inconsistencies in !grantrole
+
 ## 2023-04-29
 - Added functionality to automatically add reactions to announcement posts
 
