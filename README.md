@@ -1,6 +1,8 @@
 # 87th Administrator
 The 87th Administrator bot to automate tasks in the 87th Regiment of Foot discord server.
 
+For a list of features and commands, see COMMANDS.md.
+
 ### Current Working Features:
 - DM new members who join the server
 - Enlist users with basic Recruit roles
