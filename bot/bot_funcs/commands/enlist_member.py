@@ -5,14 +5,14 @@ import discord
 import utility.enums as enums
 
 async def enlist_member(ctx, user: discord.Member, log):
-    log.info(f'Enlist command triggered by user {ctx.author.name} ({ctx.author.id}) for {user.display_name}({user.id}). Attempting to enlist...')
+    log.info(f'Enlist command triggered by user {ctx.author.name} ({ctx.author.id}) for {user.display_name} ({user.id}). Attempting to enlist...')
     if None != ctx.guild.get_member(user.id).get_role(enums.GRANTABLE_ROLES["regiment"]):
         log.info(f'Error running command - user {user.display_name}({user.id}) is already enlisted.')
         await ctx.channel.send(f':x: I can\'t do that <@{ctx.author.id}> - it looks like <@{user.id}> is already enlisted!')
     else: 
+        await ctx.channel.send(f"Enlisting this user, sit tight...")
         if None != ctx.guild.get_member(user.id).get_role(enums.GRANTABLE_ROLES["unassigned"]):
             await ctx.guild.get_member(user.id).remove_roles(ctx.guild.get_role(enums.GRANTABLE_ROLES["unassigned"])) # Remove the 'Unassigned' role
-            await ctx.channel.send(f"Enlisting this user, sit tight...")
         for id in enums.GRANTABLE_ROLES["enlistment"]:
             try:
                 role = ctx.guild.get_role(id)
