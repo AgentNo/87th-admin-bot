@@ -1,7 +1,7 @@
 # bot.py
 # Main entrypoint for the admin bot.
 
-from discord.app_commands.checks import has_any_role
+from discord.ext.commands import has_role
 from discord.ext import commands
 from discord.ext.commands import errors
 from dotenv import load_dotenv
@@ -57,7 +57,7 @@ async def heartbeat_handler(ctx):
         help="Enlist a user. Accepts a single mention of a user as an argument. Can only be successfully invoked by a user with manage roles permission.",
         brief="Enlists a user to the 87th."
         )
-@has_any_role(enums.AUTHORISED_ROLES)
+@has_role(enums.BOT_USER_ROLE)
 async def enlist_member_handler(ctx, user: discord.Member):
     await funcs.enlist_member(ctx, user, log)
 
@@ -66,7 +66,7 @@ async def enlist_member_handler(ctx, user: discord.Member):
 @enlist_member_handler.error
 async def enlist_error(ctx, error):
     log.info(f'Encountered error in !enlist invocation by user {ctx.author.name} ({ctx.author.id}) - {error}')
-    if isinstance(error, errors.MissingPermissions) or isinstance(error, errors.MissingAnyRole):
+    if isinstance(error, errors.MissingPermissions) or isinstance(error, errors.MissingRole):
         await ctx.channel.send(f'Oi <@{ctx.author.id}>! You don\'t have permission to do that! :angry:')
     elif isinstance(error, errors.MissingRequiredArgument):
         await ctx.channel.send(f'<@{ctx.author.id}>, you need to specify a user to enlist, like this: \n**!enlist <@user>**')
@@ -77,7 +77,7 @@ async def enlist_error(ctx, error):
         help="Add or remove Merc/Rep/Visitor tags. Accepts a single mention of a user as an argument. Can only be successfully invoked by a user with manage roles permission. 'Rep', 'Merc', or 'Visitor' must be defined or else command will fail.",
         brief="Adds or removes Merc, Rep, or Visitor tags on a user."
         )
-@has_any_role(enums.AUTHORISED_ROLES)
+@has_role(enums.BOT_USER_ROLE)
 async def grant_role_handler(ctx, roleType, user: discord.User):
     await funcs.grant_role(ctx, roleType, user, log)
 
@@ -86,7 +86,7 @@ async def grant_role_handler(ctx, roleType, user: discord.User):
 @grant_role_handler.error
 async def grant_role_error(ctx, error):
     log.info(f'Encountered error in !enlist invocation by user {ctx.author.name} ({ctx.author.id}) - {error}')
-    if isinstance(error, errors.MissingPermissions) or isinstance(error, errors.MissingAnyRole):
+    if isinstance(error, errors.MissingPermissions) or isinstance(error, errors.MissingRole):
         await ctx.channel.send(f'Oi <@{ctx.author.id}>! You don\'t have permission to do that! :angry:')
     elif isinstance(error, errors.MissingRequiredArgument):
         await ctx.channel.send(f'<@{ctx.author.id}>, you need to specify both a role type and user, like this: \n**!grantrole <merc/rep/visitor> <@user>**')
