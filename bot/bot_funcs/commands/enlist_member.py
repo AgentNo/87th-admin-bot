@@ -7,7 +7,7 @@ import utility.enums as enums
 async def enlist_member(ctx, user: discord.Member, log):
     log.info(f'Enlist command triggered by user {ctx.author.name} ({ctx.author.id}) for {user.display_name} ({user.id}). Attempting to enlist...')
     if None != ctx.guild.get_member(user.id).get_role(enums.GRANTABLE_ROLES["regiment"]):
-        log.info(f'Error running command - user {user.display_name}({user.id}) is already enlisted.')
+        log.info(f'Error running command - user {user.display_name} ({user.id}) is already enlisted.')
         await ctx.channel.send(f':x: I can\'t do that <@{ctx.author.id}> - it looks like <@{user.id}> is already enlisted!')
     else: 
         await ctx.channel.send(f"Enlisting this user, sit tight...")
