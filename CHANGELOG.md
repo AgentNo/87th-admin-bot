@@ -1,6 +1,9 @@
 # Changelog for 87th Admin Bot
 Note: This file was started on 2023-04-22. Any changes before then are not captured.
 
+## 2023-05-15
+- Fixed an error message in !grantrole
+
 ## 2023-05-12 (v. 1.1)
 - Added whitespace to enlist logs
 - Fixed an issue where authentication broke with library update - the bot now users has_role() to check for the presence of the Bot User role.
