@@ -1,6 +1,9 @@
 # Changelog for 87th Admin Bot
 Note: This file was started on 2023-04-22. Any changes before then are not captured.
 
+## 20234-05-20
+- !enlist now contains the instructions to join the registry etc. in the confirmation message
+
 ## 2023-05-15
 - Fixed an error message in !grantrole
 
