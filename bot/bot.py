@@ -85,7 +85,7 @@ async def grant_role_handler(ctx, roleType, user: discord.User):
 # Error handling for !grantrole
 @grant_role_handler.error
 async def grant_role_error(ctx, error):
-    log.info(f'Encountered error in !enlist invocation by user {ctx.author.name} ({ctx.author.id}) - {error}')
+    log.info(f'Encountered error in !grantrole invocation by user {ctx.author.name} ({ctx.author.id}) - {error}')
     if isinstance(error, errors.MissingPermissions) or isinstance(error, errors.MissingRole):
         await ctx.channel.send(f'Oi <@{ctx.author.id}>! You don\'t have permission to do that! :angry:')
     elif isinstance(error, errors.MissingRequiredArgument):

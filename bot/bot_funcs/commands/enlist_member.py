@@ -3,6 +3,7 @@
 
 import discord
 import utility.enums as enums
+import utility.strings as strings
 
 async def enlist_member(ctx, user: discord.Member, log):
     log.info(f'Enlist command triggered by user {ctx.author.name} ({ctx.author.id}) for {user.display_name} ({user.id}). Attempting to enlist...')
@@ -23,8 +24,8 @@ async def enlist_member(ctx, user: discord.Member, log):
                 log.info(f"Error running command !enlist - {e}. Command failed on role {role}, id = {id}")
         if len(user.display_name) < 19:
             await user.edit(nick=f'[87th] Rec. | {user.display_name}')
-            await ctx.channel.send(f'<@{user.id}> has been enlisted successfully. Welcome! :crossed_swords:')
+            await ctx.channel.send(strings.ENLIST_SUCCESS_MESSAGE.format(user.id))
         else:
-            await ctx.channel.send(f'<@{user.id}> has been enlisted successfully. Welcome! :crossed_swords:')
+            await ctx.channel.send(strings.ENLIST_SUCCESS_MESSAGE.format(user.id))
             await ctx.channel.send(f'Sorry <@{ctx.author.id}>, I could not change this user\'s name as it is longer than 19 characters :pensive:.')
-        log.info(f'{user.display_name}({user.id}) has been enlisted successfully!')
+        log.info(f'{user.display_name} ({user.id}) has been enlisted successfully!')
