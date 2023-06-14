@@ -43,8 +43,7 @@ async def on_message(message):
 
 
 # !hb - Health command to ensure bot is responsive to commands and currently operational
-@bot.command(
-        name="hb",
+@bot.command(name="hb",
         help="Simple heartbeat command to ensure bot is up and running",
         brief="Prints bot uptime to the channel"
         )

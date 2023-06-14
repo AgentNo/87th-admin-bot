@@ -1,2 +1,4 @@
-discord.py
+discord.py==2.3.0
 python-dotenv
+gspread==5.8.0
+oauth2client==4.1.3
