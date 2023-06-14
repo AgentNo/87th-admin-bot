@@ -3,6 +3,7 @@ Note: This file was started on 2023-04-22. Any changes before then are not captu
 
 ## 2023-06-14
 - Updated discord.py version to fix issues with the latest discord update
+- Removed .vscode directory
 
 ## 2023-05-20
 - !enlist now contains the instructions to join the registry etc. in the confirmation message
