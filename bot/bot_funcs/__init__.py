@@ -5,4 +5,4 @@ from bot_funcs.dm_manager import send_dm_to_new_member
 from bot_funcs.commands.heartbeat import heartbeat
 from bot_funcs.commands.enlist_member import enlist_member
 from bot_funcs.commands.grant_role import grant_role
-from bot_funcs.sheets_manager import attend, attend_one_user
+from bot_funcs.sheets_manager import attend
