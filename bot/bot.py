@@ -100,7 +100,7 @@ async def grant_role_error(ctx, error):
         )
 @has_role(enums.BOT_USER_ROLE)
 async def attend_handler(ctx):
-    await funcs.attend(ctx, SHEETS_KEY, MEMBERS_SHEET)
+    await funcs.attend(log, ctx, SHEETS_KEY, MEMBERS_SHEET)
 
 
 # Error handling for !attend
@@ -110,7 +110,9 @@ async def grant_role_error(ctx, error):
     if isinstance(error, errors.MissingPermissions) or isinstance(error, errors.MissingRole):
         await ctx.channel.send(f'Oi <@{ctx.author.id}>! You don\'t have permission to do that! :angry:')
     if isinstance(error, errors.CommandInvokeError):
-        await ctx.channel.send(f'<@{ctx.author.id}>, that command can only be used in a voice channel')
+        await ctx.channel.send(f'<@{ctx.author.id}>, that command can only be used in a voice channel!')
+    if isinstance(error, FileNotFoundError):
+        await ctx.channel.send(f'<@{ctx.author.id}>, I cannot get the authentication keys for the sheet. Please check the logs or contact Spammy!')
 
 
 # Run the bot
