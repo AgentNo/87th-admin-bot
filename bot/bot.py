@@ -15,6 +15,8 @@ import utility.utils as utility
 
 
 load_dotenv()
+SHEETS_KEY = os.getenv('SHEETS_MASTER_DOC_KEY_TEST')
+MEMBERS_SHEET = os.getenv('SHEETS_MASTER_DOC_MEMBERS_SHEET_NAME_TEST')
 TOKEN = os.getenv('DISCORD_TOKEN')
 intents = discord.Intents.default()
 intents.members = True
@@ -89,6 +91,26 @@ async def grant_role_error(ctx, error):
         await ctx.channel.send(f'Oi <@{ctx.author.id}>! You don\'t have permission to do that! :angry:')
     elif isinstance(error, errors.MissingRequiredArgument):
         await ctx.channel.send(f'<@{ctx.author.id}>, you need to specify both a role type and user, like this: \n**!grantrole <merc/rep/visitor> <@user>**')
+
+
+# !attendance - Take an attendance count and update the Master Doc. User needs to be in a voice channel for this command to work.
+@bot.command(name="attend",
+        help="Updates the Master Doc's Last Seen column with users currently in the voice channel.",
+        brief="Takes an attendance count. Must be used in a voice channel."
+        )
+@has_role(enums.BOT_USER_ROLE)
+async def attend_handler(ctx):
+    await funcs.attend(ctx, SHEETS_KEY, MEMBERS_SHEET)
+
+
+# Error handling for !attend
+@attend_handler.error
+async def grant_role_error(ctx, error):
+    log.info(f'Encountered error in !attend invocation by user {ctx.author.name} ({ctx.author.id}) - {error}')
+    if isinstance(error, errors.MissingPermissions) or isinstance(error, errors.MissingRole):
+        await ctx.channel.send(f'Oi <@{ctx.author.id}>! You don\'t have permission to do that! :angry:')
+    if isinstance(error, errors.CommandInvokeError):
+        await ctx.channel.send(f'<@{ctx.author.id}>, that command can only be used in a voice channel')
 
 
 # Run the bot

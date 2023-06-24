@@ -4,6 +4,7 @@ Note: This file was started on 2023-04-22. Any changes before then are not captu
 ## 2023-06-24
 - Removed 'Medal Automation' as a planned feature in README.md
 - Updated README.md with additional contact information
+- Added base atructure for accessing Google Docs through the !attend command
 
 ## 2023-06-14
 - Updated discord.py version to fix issues with the latest discord update
