@@ -1,7 +1,9 @@
 # 87th Administrator
-The 87th Administrator bot to automate tasks in the 87th Regiment of Foot discord server.
+The 87th Administrator bot to automate tasks in the 87th Regiment of Foot Discord server.
 
 For a list of features and commands, see COMMANDS.md.
+
+Want to use this bot for your server or adopt similar logic? Contact spammymcjunkmail on Discord or through here!
 
 ### Current Working Features:
 - DM new members who join the server
@@ -14,4 +16,6 @@ For a list of features and commands, see COMMANDS.md.
 
 #### Future Features
 - Dispatch Automation
-- Medals automation
+
+Repo Owner/Maintainer: AgentNo (spammymcjunkmail)
+Contributors: N/A
