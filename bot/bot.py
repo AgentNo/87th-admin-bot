@@ -15,8 +15,6 @@ import utility.utils as utility
 
 
 load_dotenv()
-SHEETS_KEY = os.getenv('SHEETS_MASTER_DOC_KEY_TEST')
-MEMBERS_SHEET = os.getenv('SHEETS_MASTER_DOC_MEMBERS_SHEET_NAME_TEST')
 TOKEN = os.getenv('DISCORD_TOKEN')
 intents = discord.Intents.default()
 intents.members = True
@@ -100,7 +98,7 @@ async def grant_role_error(ctx, error):
         )
 @has_role(enums.BOT_USER_ROLE)
 async def attend_handler(ctx):
-    await funcs.attend(log, ctx, SHEETS_KEY, MEMBERS_SHEET)
+    await funcs.attend(log, ctx)
 
 
 # Error handling for !attend

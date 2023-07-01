@@ -3,6 +3,7 @@ Note: This file was started on 2023-04-22. Any changes before then are not captu
 
 ## 2023-07-01
 - Removed an unneeded newline character in the enlistment message
+- Tidied up sheets_manager and the attend command handler
 
 ## 2023-06-24
 - Removed 'Medal Automation' as a planned feature in README.md
