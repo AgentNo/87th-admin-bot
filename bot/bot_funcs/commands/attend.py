@@ -26,5 +26,5 @@ async def attend(log, ctx):
     if len(errored_users) > 0:
         message += f"\n {len(errored_users)} couldn't be updated:\n"
         for member in errored_users:
-            message += f"\n {member.name} ({member.display_name})"
+            message += f"\n {member.display_name} ({member.name})"
     await ctx.channel.send(message)

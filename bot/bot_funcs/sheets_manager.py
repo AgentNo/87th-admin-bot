@@ -33,7 +33,7 @@ async def search_for_member_in_sheet(worksheet, member):
         return -1
 
 
-# Update last seen date for a single member
+# Update last seen date for a single member - takes today's date as the target data
 async def update_last_seen_for_member(worksheet, index):
     new_date = datetime.today().strftime("%d/%m/%Y")
     worksheet.update(f'H{index}', new_date)
