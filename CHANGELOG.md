@@ -1,6 +1,9 @@
 # Changelog for 87th Admin Bot
 Note: This file was started on 2023-04-22. Any changes before then are not captured.
 
+## 2023-07-01
+- Removed an unneeded newline character in the enlistment message
+
 ## 2023-06-24
 - Removed 'Medal Automation' as a planned feature in README.md
 - Updated README.md with additional contact information

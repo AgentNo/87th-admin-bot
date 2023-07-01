@@ -7,7 +7,7 @@ We look forward to seeing you on the battlefield! ⚔️\n\n
 
 *I am a bot, this message was sent automatically :)*'''
 
-ENLIST_SUCCESS_MESSAGE = '''Hey there <@{}>! Welcome to the 87th Regiment of Foot!\n
+ENLIST_SUCCESS_MESSAGE = '''Hey there <@{}>! Welcome to the 87th Regiment of Foot!
 You have been enlisted successfully. There are just a few housekeeping tasks to tidy up:
 
 - Make sure to join the in-game registry. Search for '87th' and select the one led by GodEmperorBrolly.
