@@ -13,6 +13,7 @@ Want to use this bot for your server or adopt similar logic? Contact spammymcjun
 
 ### In-flight features
 - Attendance/Last Seen automation
+- Remove bot reactions from an event announcement
 - Attendance Automation enhancements (Additional Attendance Tracking)
 - Attendance Automation enhancements (Enlistment Data Capture)
 
