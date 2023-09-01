@@ -11,14 +11,16 @@ from datetime import datetime
 async def get_master_doc_secrets():
     load_dotenv()
     __secrets = dict()
-    __secrets["SHEETS_KEY"] = os.getenv('SHEETS_MASTER_DOC_KEY_TEST')
-    __secrets["MEMBERS_SHEET"] = os.getenv('SHEETS_MASTER_DOC_MEMBERS_SHEET_NAME_TEST')
+    __secrets["SHEETS_KEY_TEST"] = os.getenv('SHEETS_MASTER_DOC_KEY_TEST')
+    __secrets["MEMBERS_SHEET_TEST"] = os.getenv('SHEETS_MASTER_DOC_MEMBERS_SHEET_NAME_TEST')
+    __secrets["SHEETS_KEY"] = os.getenv('SHEETS_MASTER_DOC_KEY')
+    __secrets["MEMBERS_SHEET"] = os.getenv('SHEETS_MASTER_DOC_MEMBERS_SHEET_NAME')
     return __secrets
 
 
 # Get and return the connection object for the master doc
 async def get_master_doc_connection(SHEETS_KEY):
-    gc = gspread.service_account(filename='bot/sheets_keys_test.json')
+    gc = gspread.service_account(filename='bot/sheets_keys.json')
     gdoc = gc.open_by_key(SHEETS_KEY)
     return gdoc
 
@@ -27,7 +29,8 @@ async def get_master_doc_connection(SHEETS_KEY):
 async def search_for_member_in_sheet(worksheet, member):
     members_column = worksheet.col_values(3)
     try:
-        index = members_column.index(member.name)
+        print(member.id)
+        index = members_column.index(str(member.id))
         return index + 1
     except ValueError:
         return -1
@@ -36,4 +39,4 @@ async def search_for_member_in_sheet(worksheet, member):
 # Update last seen date for a single member - takes today's date as the target data
 async def update_last_seen_for_member(worksheet, index):
     new_date = datetime.today().strftime("%d/%m/%Y")
-    worksheet.update(f'H{index}', new_date)
+    worksheet.update(f'I{index}', new_date)

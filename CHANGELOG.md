@@ -1,6 +1,10 @@
 # Changelog for 87th Admin Bot
 Note: This file was started on 2023-04-22. Any changes before then are not captured.
 
+## 2023-09-02
+- Added secrets and functionality for PROD release of !attend
+- Improved logging and error handling in !attend
+
 ## 2023-07-01
 - Removed an unneeded newline character in the enlistment message
 - Tidied up sheets_manager and the attend command handler
