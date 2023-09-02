@@ -127,3 +127,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+bot/sheets_keys_test.json
+bot/sheets_keys.json

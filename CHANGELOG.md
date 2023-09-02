@@ -1,6 +1,20 @@
 # Changelog for 87th Admin Bot
 Note: This file was started on 2023-04-22. Any changes before then are not captured.
 
+## 2023-09-02
+- Added secrets and functionality for PROD release of !attend
+- Improved logging and error handling in !attend
+
+## 2023-07-01
+- Removed an unneeded newline character in the enlistment message
+- Tidied up sheets_manager and the attend command handler
+
+## 2023-06-24
+- Removed 'Medal Automation' as a planned feature in README.md
+- Updated README.md with additional contact information
+- Added base structure for accessing Google Docs through the !attend command
+- Added first implementation of !attend
+
 ## 2023-06-14
 - Updated discord.py version to fix issues with the latest discord update
 - Removed .vscode directory

@@ -91,5 +91,27 @@ async def grant_role_error(ctx, error):
         await ctx.channel.send(f'<@{ctx.author.id}>, you need to specify both a role type and user, like this: \n**!grantrole <merc/rep/visitor> <@user>**')
 
 
+# !attendance - Take an attendance count and update the Master Doc. User needs to be in a voice channel for this command to work.
+@bot.command(name="attend",
+        help="Updates the Master Doc's Last Seen column with users currently in the voice channel.",
+        brief="Takes an attendance count. Must be used in a voice channel."
+        )
+@has_role(enums.BOT_USER_ROLE)
+async def attend_handler(ctx):
+    await funcs.attend(log, ctx)
+
+
+# Error handling for !attend
+@attend_handler.error
+async def grant_role_error(ctx, error):
+    log.info(f'Encountered error in !attend invocation by user {ctx.author.name} ({ctx.author.id}) - {error}')
+    if isinstance(error, errors.MissingPermissions) or isinstance(error, errors.MissingRole):
+        await ctx.channel.send(f'Oi <@{ctx.author.id}>! You don\'t have permission to do that! :angry:')
+    if isinstance(error, errors.CommandInvokeError):
+        await ctx.channel.send(f'<@{ctx.author.id}>, that command can only be used in a voice channel!')
+    if isinstance(error, FileNotFoundError):
+        await ctx.channel.send(f'<@{ctx.author.id}>, I cannot get the authentication keys for the sheet. Please check the logs or contact Spammy!')
+
+
 # Run the bot
 bot.run(TOKEN)
