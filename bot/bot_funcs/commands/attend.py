@@ -26,8 +26,10 @@ async def attend(log, ctx):
         message = f":white_check_mark: Last seen updated for {processed_members} members succesfully!"
     else:
         message = f":x: No members were processed successfully in this execution"
-        if len(errored_users) > 0:
-            message += f"\n {len(errored_users)} members couldn't be updated:\n"
-            for member in errored_users:
-                message += f"\n {member.display_name} ({member.name})"
+
+    if len(errored_users) > 0:
+        message += f"\n {len(errored_users)} members couldn't be updated:\n"
+        for member in errored_users:
+            message += f"\n {member.display_name} ({member.name})"
+            
     await ctx.channel.send(message)
