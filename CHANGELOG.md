@@ -2,7 +2,7 @@
 Note: This file was started on 2023-04-22. Any changes before then are not captured.
 
 ## 2023-09-09
-- Fixed a bug around reporting failed users in the !attend command
+- Fixed a bug around reporting failed users in the !attend command (failed users should now report correctly)
 
 ## 2023-09-02
 - Added secrets and functionality for PROD release of !attend
