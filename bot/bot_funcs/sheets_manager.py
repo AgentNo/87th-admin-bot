@@ -19,9 +19,9 @@ async def get_master_doc_secrets():
 
 
 # Get and return the connection object for the master doc
-# TO RUN LOCALLY: replace the filename arg with 'sheets_keys.json'
+# TO RUN LOCALLY: replace the filename arg with 'bot/sheets_keys.json'
 async def get_master_doc_connection(SHEETS_KEY):
-    gc = gspread.service_account(filename='87th-admin-bot/bot/sheets_keys.json')
+    gc = gspread.service_account(filename='bot/sheets_keys.json')
     gdoc = gc.open_by_key(SHEETS_KEY)
     return gdoc
 
