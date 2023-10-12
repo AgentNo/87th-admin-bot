@@ -30,7 +30,6 @@ async def get_master_doc_connection(SHEETS_KEY):
 async def search_for_member_in_sheet(worksheet, member):
     members_column = worksheet.col_values(3)
     try:
-        print(member.id)
         index = members_column.index(str(member.id))
         return index + 1
     except ValueError:
