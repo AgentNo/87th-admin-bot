@@ -1,6 +1,11 @@
 # Changelog for 87th Admin Bot
 Note: This file was started on 2023-04-22. Any changes before then are not captured.
 
+## 2023-10-12
+- Improved error logging in !attend
+- !attend will no longer print out the ID of a user while searching the sheet
+- Fixed file path to sheets keys to comply with new hosting restrictions
+
 ## 2023-09-09
 - Fixed a bug around reporting failed users in the !attend command (failed users should now report correctly)
 
