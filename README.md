@@ -14,11 +14,12 @@ Want to use this bot for your server or adopt similar logic? Contact spammymcjun
 
 ### In-flight features
 - Remove bot reactions from an event announcement
+- Gaming roles automation
+
+### Future Features
+- Promotion/Demotion automation
 - Attendance Automation enhancements (Additional Attendance Tracking)
 - Attendance Automation enhancements (Enlistment Data Capture)
-
-#### Future Features
-- Dispatch Automation
 
 Repo Owner/Maintainer: AgentNo (spammymcjunkmail)
 Contributors: N/A
