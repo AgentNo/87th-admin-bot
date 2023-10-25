@@ -1,6 +1,9 @@
 # Changelog for 87th Admin Bot
 Note: This file was started on 2023-04-22. Any changes before then are not captured.
 
+## 2023-10-25
+- Removed unused LEADERSHIP_ROLES enum
+
 ## 2023-10-12
 - Improved error logging in !attend
 - !attend will no longer print out the ID of a user while searching the sheet
