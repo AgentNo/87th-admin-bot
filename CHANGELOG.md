@@ -3,6 +3,7 @@ Note: This file was started on 2023-04-22. Any changes before then are not captu
 
 ## 2023-10-25
 - Removed unused LEADERSHIP_ROLES enum
+- Fixed !attend error handing method being incorrectly named
 
 ## 2023-10-12
 - Improved error logging in !attend

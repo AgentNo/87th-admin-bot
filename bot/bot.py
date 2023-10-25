@@ -103,7 +103,7 @@ async def attend_handler(ctx):
 
 # Error handling for !attend
 @attend_handler.error
-async def grant_role_error(ctx, error):
+async def attend_error(ctx, error):
     log.info(f'Encountered error in !attend invocation by user {ctx.author.name} ({ctx.author.id}) - {error}')
     if isinstance(error, errors.MissingPermissions) or isinstance(error, errors.MissingRole):
         await ctx.channel.send(f'Oi <@{ctx.author.id}>! You don\'t have permission to do that! :angry:')
