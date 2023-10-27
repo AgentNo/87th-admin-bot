@@ -14,14 +14,12 @@ async def check_if_message_has_femboy(message):
 
 # Checks if a message in #event-announcements needs signup emojis, and will add them if needed
 async def check_and_put_signup_reactions(message): 
-    if message.channel.id == 744708888250810459:
-        content = message.content
-        if 'RegimentalColours' in content:
-            for reaction in enums.PRIMARY_SIGNUP_REACTIONS:
-                await message.add_reaction(reaction)
-        if 'KingsColours' in content:
-             for reaction in enums.SECONDARY_SIGNUP_REACTIONS:
-                await message.add_reaction(reaction)
-        if 'UnionColours' in content:
-             for reaction in enums.TERTIARY_SIGNUP_REACTIONS:
-                await message.add_reaction(reaction)
+    if 'RegimentalColours' in message.content:
+        for reaction in enums.PRIMARY_SIGNUP_REACTIONS:
+            await message.add_reaction(reaction)
+    if 'KingsColours' in message.content:
+        for reaction in enums.SECONDARY_SIGNUP_REACTIONS:
+            await message.add_reaction(reaction)
+    if 'UnionColours' in message.content:
+        for reaction in enums.TERTIARY_SIGNUP_REACTIONS:
+            await message.add_reaction(reaction)

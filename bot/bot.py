@@ -38,8 +38,9 @@ async def on_member_join(member):
 @bot.event
 async def on_message(message):
     await funcs.check_if_message_has_femboy(message)
-    await funcs.check_and_put_signup_reactions(message)
     await bot.process_commands(message)
+    if message.channel.id == 744708888250810459:
+        await funcs.check_and_put_signup_reactions(message)
 
 
 # !hb - Health command to ensure bot is responsive to commands and currently operational
