@@ -8,7 +8,7 @@ import random
 async def check_if_message_has_femboy(message):
     if 'femboy' in message.content and not message.author.bot:
         number = random.uniform(1,100)
-        if number < 3:
+        if number < 6:
             await message.channel.send(f'Spammy is not a femboy <@{message.author.id}>. Please stop spreading fake news.')
 
 
