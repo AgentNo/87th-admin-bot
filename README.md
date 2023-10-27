@@ -17,7 +17,8 @@ Want to use this bot for your server or adopt similar logic? Contact spammymcjun
 - Gaming roles automation
 
 ### Future Features
-- Promotion/Demotion automation
+- Promotion/Demotion Automation
+- Enlistment Automation
 - Attendance Automation enhancements (Additional Attendance Tracking)
 - Attendance Automation enhancements (Enlistment Data Capture)
 
