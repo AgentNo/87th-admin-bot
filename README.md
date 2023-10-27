@@ -13,10 +13,10 @@ Want to use this bot for your server or adopt similar logic? Contact spammymcjun
 - Attendance/Last Seen automation
 
 ### In-flight features
-- Remove bot reactions from an event announcement
 - Gaming roles automation
 
 ### Future Features
+- Automated Event Announcements
 - Promotion/Demotion Automation
 - Enlistment Automation
 - Attendance Automation enhancements (Additional Attendance Tracking)
