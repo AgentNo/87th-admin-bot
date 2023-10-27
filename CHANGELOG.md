@@ -1,6 +1,14 @@
 # Changelog for 87th Admin Bot
 Note: This file was started on 2023-04-22. Any changes before then are not captured.
 
+## 2023-10-27
+- Moved the channel check for event announcements to the handler method, which prevents invocation on every message sent in the discord
+- Upped the femboy chance from 3 to 6 percent
+
+## 2023-10-25
+- Removed unused LEADERSHIP_ROLES enum
+- Fixed !attend error handing method being incorrectly named
+
 ## 2023-10-12
 - Improved error logging in !attend
 - !attend will no longer print out the ID of a user while searching the sheet

@@ -38,8 +38,9 @@ async def on_member_join(member):
 @bot.event
 async def on_message(message):
     await funcs.check_if_message_has_femboy(message)
-    await funcs.check_and_put_signup_reactions(message)
     await bot.process_commands(message)
+    if message.channel.id == 744708888250810459:
+        await funcs.check_and_put_signup_reactions(message)
 
 
 # !hb - Health command to ensure bot is responsive to commands and currently operational
@@ -103,7 +104,7 @@ async def attend_handler(ctx):
 
 # Error handling for !attend
 @attend_handler.error
-async def grant_role_error(ctx, error):
+async def attend_error(ctx, error):
     log.info(f'Encountered error in !attend invocation by user {ctx.author.name} ({ctx.author.id}) - {error}')
     if isinstance(error, errors.MissingPermissions) or isinstance(error, errors.MissingRole):
         await ctx.channel.send(f'Oi <@{ctx.author.id}>! You don\'t have permission to do that! :angry:')
