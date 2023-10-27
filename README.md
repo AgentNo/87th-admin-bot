@@ -9,7 +9,7 @@ Want to use this bot for your server or adopt similar logic? Contact spammymcjun
 - DM new members who join the server
 - Enlist users with basic Recruit roles
 - Add or remove a user's merc, visitor, or rep roles
-- Automatically add reaction sets to posts in #event-announcements
+- Automatically add reaction/remove sets to posts in #event-announcements
 - Attendance/Last Seen automation
 
 ### In-flight features
