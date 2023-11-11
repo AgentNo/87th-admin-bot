@@ -21,3 +21,5 @@ Replying to a message with 'unreact' will remove the bot's reactions. Note react
 The bot has a 3% chance to respond to users who mention 'femboy' in the discord. Just a wee easter egg.
 ### Welcome DMs
 The bot will automatically send a welcome message to any new members who join the discord.
+### Gaming Reactions
+The bot will grant or remove gaming reactions based on the user's reactions

@@ -1,6 +1,12 @@
 # Changelog for 87th Admin Bot
 Note: This file was started on 2023-04-22. Any changes before then are not captured.
 
+## 2023-11-11
+- Added functionality to react for gaming roles
+
+## 2023-11-10
+- The Among Us role is no longer granted as part of enlistment
+
 ## 2023-10-27
 - Moved the channel check for event announcements to the handler method, which prevents invocation on every message sent in the discord
 - Upped the femboy chance from 3 to 6 percent
