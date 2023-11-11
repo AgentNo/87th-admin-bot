@@ -17,8 +17,6 @@ async def add_or_remove_gaming_role(bot, payload, remove_unrelated = True):
             member = guild.get_member(payload.user_id)
             if member.get_role(role_id) != None:
                 await member.remove_roles(role)
-        else:
-            return
     else:
         if remove_unrelated:
             await remove_reaction_from_message(payload)
@@ -31,6 +29,6 @@ async def remove_reaction_from_message(payload):
     message = await channel.fetch_message(payload.message_id)
 
     for reaction in message.reactions:
-        if reaction.emoji == payload.emoji.name:
+        if (payload.emoji.is_custom_emoji and reaction.emoji == payload.emoji) or reaction.emoji == payload.emoji.name:
             await reaction.remove(payload.member)
             return
