@@ -1,12 +1,11 @@
 # reactions_listener.py
 # Functions related to reactions on messages
 
-import discord
 import utility.enums as enums
 
 
 # Handle gaming role reactions
-async def add_or_remove_gaming_role(bot, payload):
+async def add_or_remove_gaming_role(bot, payload, remove_unrelated = True):
     if payload.emoji.name in enums.GAME_ROLE_REACTIONS:
         role_id = enums.GAME_ROLE_REACTIONS[payload.emoji.name]
         guild = bot.get_guild(payload.guild_id)
@@ -21,14 +20,17 @@ async def add_or_remove_gaming_role(bot, payload):
         else:
             return
     else:
-        await remove_reaction_from_message(bot, payload)
+        if remove_unrelated:
+            await remove_reaction_from_message(payload)
+        else:
+            return
 
 
-async def remove_reaction_from_message(bot, payload):
+async def remove_reaction_from_message(payload):
     channel = await payload.member.guild.fetch_channel(payload.channel_id)
     message = await channel.fetch_message(payload.message_id)
 
     for reaction in message.reactions:
         if reaction.emoji == payload.emoji.name:
-            await reaction.remove(payload.user)
+            await reaction.remove(payload.member)
             return

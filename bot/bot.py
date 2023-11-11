@@ -54,7 +54,7 @@ async def on_raw_reaction_add(payload):
 @bot.event
 async def on_raw_reaction_remove(payload):
     if payload.channel_id == 1172649217567768606:
-        await funcs.add_or_remove_gaming_role(bot, payload)  
+        await funcs.add_or_remove_gaming_role(bot, payload, remove_unrelated=False)  
 
 
 # !hb - Health command to ensure bot is responsive to commands and currently operational
