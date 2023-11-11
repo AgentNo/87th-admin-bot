@@ -24,6 +24,7 @@ bot = commands.Bot(intents=intents, command_prefix='!')
 # Start logger
 startTime = time.time()
 log = utility.start_logging()
+guild = None;
 
 @bot.event
 async def on_ready():
@@ -42,6 +43,18 @@ async def on_message(message):
     if message.channel.id == 744708888250810459:
         bot_user = await bot.fetch_user(bot.application_id)
         await funcs.check_and_put_signup_reactions(message, bot_user)
+
+
+@bot.event
+async def on_raw_reaction_add(payload):
+    if payload.channel_id == 1172649217567768606:
+        await funcs.add_or_remove_gaming_role(bot, payload)
+
+
+@bot.event
+async def on_raw_reaction_remove(payload):
+    if payload.channel_id == 1172649217567768606:
+        await funcs.add_or_remove_gaming_role(bot, payload, remove_unrelated=False)  
 
 
 # !hb - Health command to ensure bot is responsive to commands and currently operational

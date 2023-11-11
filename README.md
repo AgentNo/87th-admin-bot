@@ -11,9 +11,10 @@ Want to use this bot for your server or adopt similar logic? Contact spammymcjun
 - Add or remove a user's merc, visitor, or rep roles
 - Automatically add reaction/remove sets to posts in #event-announcements
 - Attendance/Last Seen automation
+- Gaming roles automation
 
 ### In-flight features
-- Gaming roles automation
+N/A
 
 ### Future Features
 - Automated Event Announcements
