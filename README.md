@@ -18,7 +18,6 @@ N/A
 
 ### Future Features
 - Automated Event Announcements
-- Promotion/Demotion Automation
 - Enlistment Automation
 - Attendance Automation enhancements (Additional Attendance Tracking)
 - Attendance Automation enhancements (Enlistment Data Capture)
