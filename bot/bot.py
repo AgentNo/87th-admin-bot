@@ -86,9 +86,9 @@ async def enlist_error(ctx, error):
         await ctx.channel.send(f'<@{ctx.author.id}>, you need to specify a user to enlist, like this: \n**!enlist <@user>**')
 
 
-# !grantrole <type> <user> - Add or remove Merc/Rep/Visitor tags from a user.
-@bot.command(name="grantrole",
-        help="Add or remove Merc/Rep/Visitor roles. Accepts a single member mention as an argument. Role type ('rep', 'merc', or 'visitor') must be defined or else command will fail.\nUsage: !grantrole @<member> merc/rep/visitor",
+# !role <type> <user> - Add or remove Merc/Rep/Visitor tags from a user.
+@bot.command(name="role",
+        help="Add or remove Merc/Rep/Visitor roles. Accepts a single member mention as an argument. Role type ('rep', 'merc', or 'visitor') must be defined or else command will fail. If the user already has the specific role, it will be removed.\nUsage: !grantrole @<member> merc/rep/visitor",
         brief="Adds or removes Merc, Rep, or Visitor roles on a member"
         )
 @has_role(enums.BOT_USER_ROLE)
@@ -96,14 +96,14 @@ async def grant_role_handler(ctx, roleType, user: discord.User):
     await funcs.grant_role(ctx, roleType, user, log)
 
 
-# Error handling for !grantrole
+# Error handling for !role
 @grant_role_handler.error
 async def grant_role_error(ctx, error):
-    log.info(f'Encountered error in !grantrole invocation by user {ctx.author.name} ({ctx.author.id}) - {error}')
+    log.info(f'Encountered error in !role invocation by user {ctx.author.name} ({ctx.author.id}) - {error}')
     if isinstance(error, errors.MissingPermissions) or isinstance(error, errors.MissingRole):
         await ctx.channel.send(f'Oi <@{ctx.author.id}>! You don\'t have permission to do that! :angry:')
     elif isinstance(error, errors.MissingRequiredArgument):
-        await ctx.channel.send(f'<@{ctx.author.id}>, you need to specify both a role type and user, like this: \n**!grantrole <merc/rep/visitor> <@user>**')
+        await ctx.channel.send(f'<@{ctx.author.id}>, you need to specify both a role type and user, like this: \n**!role <merc/rep/visitor> <@user>**')
 
 
 # !attendance - Take an attendance count and update the Master Doc. User needs to be in a voice channel for this command to work.

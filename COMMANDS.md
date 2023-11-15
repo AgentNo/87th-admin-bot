@@ -7,7 +7,7 @@ Heartbeat, returns the uptime of the bot. Just something I use for debug to ensu
 ### !enlist <@user>
 Will add all the Recruit roles to the @'d user. Will not work on users that are already enlisted.
 
-### !grantrole <merc/rep/visitor> <@user>
+### !role <merc/rep/visitor> <@user>
 Adds or removes the merc/rep/visitor role on a user, depending on whether or not they already have it.
 
 ### !attend
