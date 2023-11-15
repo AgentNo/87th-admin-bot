@@ -1,6 +1,12 @@
 # Changelog for 87th Admin Bot
 Note: This file was started on 2023-04-22. Any changes before then are not captured.
 
+## 2023-11-15
+- Updated DM welcome message and enlistment message 
+- Fixed the order of events in `on_message` so commands are processed last
+- Improved help command text on commands
+- Renamed `!grantole` to `!role`. Functionality is unaffected.
+
 ## 2023-11-11
 - Added functionality to react for gaming roles
 
