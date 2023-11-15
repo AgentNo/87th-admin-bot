@@ -59,8 +59,8 @@ async def on_raw_reaction_remove(payload):
 
 # !hb - Health command to ensure bot is responsive to commands and currently operational
 @bot.command(name="hb",
-        help="Simple heartbeat command to ensure bot is up and running",
-        brief="Prints bot uptime to the channel"
+        help="Heartbeat command to ensure bot is up and running. Returns the bot's current uptime.",
+        brief="Show the bot's uptime"
         )
 async def heartbeat_handler(ctx):
     await funcs.heartbeat(ctx, startTime, log)
@@ -68,8 +68,8 @@ async def heartbeat_handler(ctx):
 
 # !enlist <user> - Will give the user basic Recruit roles.
 @bot.command(name="enlist",
-        help="Enlist a user. Accepts a single mention of a user as an argument. Can only be successfully invoked by a user with manage roles permission.",
-        brief="Enlists a user to the 87th."
+        help="Enlist a member and grant basic recruit roles. Accepts a single member mention as an argument. Will fail when attempting to enlist a member with the 87th Regiment of Foot role.\nUsage: !enlist @<member>",
+        brief="Enlist a member and grant basic recruit roles"
         )
 @has_role(enums.BOT_USER_ROLE)
 async def enlist_member_handler(ctx, user: discord.Member):
@@ -88,8 +88,8 @@ async def enlist_error(ctx, error):
 
 # !grantrole <type> <user> - Add or remove Merc/Rep/Visitor tags from a user.
 @bot.command(name="grantrole",
-        help="Add or remove Merc/Rep/Visitor tags. Accepts a single mention of a user as an argument. Can only be successfully invoked by a user with manage roles permission. 'Rep', 'Merc', or 'Visitor' must be defined or else command will fail.",
-        brief="Adds or removes Merc, Rep, or Visitor tags on a user."
+        help="Add or remove Merc/Rep/Visitor roles. Accepts a single member mention as an argument. Role type ('rep', 'merc', or 'visitor') must be defined or else command will fail.\nUsage: !grantrole @<member> merc/rep/visitor",
+        brief="Adds or removes Merc, Rep, or Visitor roles on a member"
         )
 @has_role(enums.BOT_USER_ROLE)
 async def grant_role_handler(ctx, roleType, user: discord.User):
@@ -108,8 +108,8 @@ async def grant_role_error(ctx, error):
 
 # !attendance - Take an attendance count and update the Master Doc. User needs to be in a voice channel for this command to work.
 @bot.command(name="attend",
-        help="Updates the Master Doc's Last Seen column with users currently in the voice channel.",
-        brief="Takes an attendance count. Must be used in a voice channel."
+        help="Update the master document's 'Last Seen' column with users currently in the voice channel. Can be used in any text channel the bot has scope to, but the invoker must be present in the voice call.",
+        brief="Take an attendance count"
         )
 @has_role(enums.BOT_USER_ROLE)
 async def attend_handler(ctx):

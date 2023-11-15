@@ -4,7 +4,7 @@ Note: This file was started on 2023-04-22. Any changes before then are not captu
 ## 2023-11-15
 - Updated DM welcome message and enlistment message 
 - Fixed the order of events in `on_message` so commands are processed last
-- 
+- Improved help command text
 
 ## 2023-11-11
 - Added functionality to react for gaming roles
