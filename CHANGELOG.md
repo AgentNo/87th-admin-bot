@@ -1,6 +1,9 @@
 # Changelog for 87th Admin Bot
 Note: This file was started on 2023-04-22. Any changes before then are not captured.
 
+## 2023-11-24
+- Cut down logging and moved `!hb` command logic back into the handler
+
 ## 2023-11-15
 - Updated DM welcome message and enlistment message 
 - Fixed the order of events in `on_message` so commands are processed last

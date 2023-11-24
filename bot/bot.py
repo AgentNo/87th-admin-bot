@@ -7,6 +7,7 @@ from discord.ext.commands import errors
 from dotenv import load_dotenv
 import discord
 import time
+import datetime
 import os
 
 import bot_funcs as funcs
@@ -63,7 +64,11 @@ async def on_raw_reaction_remove(payload):
         brief="Show the bot's uptime"
         )
 async def heartbeat_handler(ctx):
-    await funcs.heartbeat(ctx, startTime, log)
+    try:
+        currentTime = time.time()
+        await ctx.channel.send(f"87th Admin Bot is up and running! :heartpulse:\nThis instance has been alive for {datetime.timedelta(seconds=int(currentTime-startTime))}!")
+    except Exception as e:
+        await ctx.channel.send(f"Error in heartbeat invocation - {e}")
 
 
 # !enlist <user> - Will give the user basic Recruit roles.
