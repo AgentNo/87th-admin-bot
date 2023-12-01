@@ -4,9 +4,6 @@ import os
 import discord
 import logging
 
-def getDevGuild(bot):
-    return discord.utils.get(bot.guilds, name=os.getenv('DISCORD_DEV_GUILD'))
-
 
 def getProdGuild(bot):
     return discord.utils.get(bot.guilds, name=os.getenv('DISCORD_PROD_GUILD'))
