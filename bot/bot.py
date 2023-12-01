@@ -12,7 +12,7 @@ import os
 
 import bot_funcs as funcs
 import utility.enums as enums
-import utility.utils as utility
+from utility.setup_logger import logger 
 
 
 load_dotenv()
@@ -21,20 +21,16 @@ intents = discord.Intents.default()
 intents.members = True
 intents.message_content = True
 bot = commands.Bot(intents=intents, command_prefix='!')
-
-# Start logger
 startTime = time.time()
-log = utility.start_logging()
-guild = None;
 
 @bot.event
 async def on_ready():
-    log.info(f'{bot.user} has connected to the following guilds: ' + ', '.join(guild.name for guild in bot.guilds))
+    logger.info(f'{bot.user} has connected to the following guilds: ' + ', '.join(guild.name for guild in bot.guilds))
 
 
 @bot.event
 async def on_member_join(member):
-    await funcs.send_dm_to_new_member(log, member)
+    await funcs.send_dm_to_new_member(member)
 
 
 @bot.event
@@ -78,13 +74,13 @@ async def heartbeat_handler(ctx):
         )
 @has_role(enums.BOT_USER_ROLE)
 async def enlist_member_handler(ctx, user: discord.Member):
-    await funcs.enlist_member(ctx, user, log)
+    await funcs.enlist_member(ctx, user)
 
 
 # Error handling for !enlist
 @enlist_member_handler.error
 async def enlist_error(ctx, error):
-    log.info(f'Encountered error in !enlist invocation by user {ctx.author.name} ({ctx.author.id}) - {error}')
+    logger.info(f'Encountered error in !enlist invocation by user {ctx.author.name} ({ctx.author.id}) - {error}')
     if isinstance(error, errors.MissingPermissions) or isinstance(error, errors.MissingRole):
         await ctx.channel.send(f'Oi <@{ctx.author.id}>! You don\'t have permission to do that! :angry:')
     elif isinstance(error, errors.MissingRequiredArgument):
@@ -98,13 +94,13 @@ async def enlist_error(ctx, error):
         )
 @has_role(enums.BOT_USER_ROLE)
 async def grant_role_handler(ctx, roleType, user: discord.User):
-    await funcs.grant_role(ctx, roleType, user, log)
+    await funcs.grant_role(ctx, roleType, user)
 
 
 # Error handling for !role
 @grant_role_handler.error
 async def grant_role_error(ctx, error):
-    log.info(f'Encountered error in !role invocation by user {ctx.author.name} ({ctx.author.id}) - {error}')
+    logger.info(f'Encountered error in !role invocation by user {ctx.author.name} ({ctx.author.id}) - {error}')
     if isinstance(error, errors.MissingPermissions) or isinstance(error, errors.MissingRole):
         await ctx.channel.send(f'Oi <@{ctx.author.id}>! You don\'t have permission to do that! :angry:')
     elif isinstance(error, errors.MissingRequiredArgument):
@@ -118,13 +114,13 @@ async def grant_role_error(ctx, error):
         )
 @has_role(enums.BOT_USER_ROLE)
 async def attend_handler(ctx):
-    await funcs.attend(log, ctx)
+    await funcs.attend(ctx)
 
 
 # Error handling for !attend
 @attend_handler.error
 async def attend_error(ctx, error):
-    log.info(f'Encountered error in !attend invocation by user {ctx.author.name} ({ctx.author.id}) - {error}')
+    logger.info(f'Encountered error in !attend invocation by user {ctx.author.name} ({ctx.author.id}) - {error}')
     if isinstance(error, errors.MissingPermissions) or isinstance(error, errors.MissingRole):
         await ctx.channel.send(f'Oi <@{ctx.author.id}>! You don\'t have permission to do that! :angry:')
     if isinstance(error, errors.CommandInvokeError):

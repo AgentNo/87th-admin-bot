@@ -4,6 +4,8 @@ Note: This file was started on 2023-04-22. Any changes before then are not captu
 ## 2023-12-01
 - Introduced error handling into dm_message listener and improved logging
 - Removed `getDevGuild()` since it is no longer used
+- Re-worked logging to be less stupid that it was previously
+- Reduced the amount of useless logging across the whole application
 
 ## 2023-11-24
 - Cut down logging and moved `!hb` command logic back into the handler
