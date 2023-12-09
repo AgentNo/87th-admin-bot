@@ -5,6 +5,7 @@ Note: This file was started on 2023-04-22. Any changes before then are not captu
 - Changed name of signup function to better reflect its purpose (`check_and_put_signup_reactions` -> `add_or_remove_signup_reactions`)
 - Removed the femboy easter egg. Was a joke that overstayed its welcome
 - Removed some pointless conditions from the the community roles functionality
+- Tidied up the !enlist function
 
 ## 2023-12-01
 - Introduced error handling into dm_message listener and improved logging
