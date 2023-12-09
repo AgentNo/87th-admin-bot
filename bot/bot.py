@@ -123,7 +123,7 @@ async def attend_error(ctx, error):
     if isinstance(error, errors.MissingPermissions) or isinstance(error, errors.MissingRole):
         await ctx.channel.send(f'Oi <@{ctx.author.id}>! You don\'t have permission to do that! :angry:')
     if isinstance(error, errors.CommandInvokeError):
-        await ctx.channel.send(f'<@{ctx.author.id}>, there was an error with that invocation: {error}')
+        await ctx.channel.send(f'<@{ctx.author.id}>, you need to use this command while connected to a voice channel ({error})')
     if isinstance(error, FileNotFoundError):
         await ctx.channel.send(f'<@{ctx.author.id}>, I got an authentication error. Please check the logs or contact Spammy!')
 

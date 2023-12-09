@@ -9,6 +9,7 @@ Note: This file was started on 2023-04-22. Any changes before then are not captu
 - Updated frontend messaging to replace 'users' with 'members'
 - Tidied up `!role` functionality
 - `!role` will no longer remove roles if the user already has them
+- Fixed error where !attend did not correctly report instances of AttributeError when used outside a voice call
 
 ## 2023-12-01
 - Introduced error handling into dm_message listener and improved logging
