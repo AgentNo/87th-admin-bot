@@ -5,14 +5,16 @@ Note: This file was started on 2023-04-22. Any changes before then are not captu
 - Changed name of signup function to better reflect its purpose (`check_and_put_signup_reactions` -> `add_or_remove_signup_reactions`)
 - Removed the femboy easter egg. Was a joke that overstayed its welcome
 - Removed some pointless conditions from the the community roles functionality
-- Tidied up the !enlist function
+- Tidied up the `!enlist` function
 - Updated frontend messaging to replace 'users' with 'members'
+- Tidied up `!role` functionality
+- `!role` will no longer remove roles if the user already has them
 
 ## 2023-12-01
 - Introduced error handling into dm_message listener and improved logging
 - Removed `getDevGuild()` since it is no longer used
 - Re-worked logging to be less stupid that it was previously
-- Reduced the amount of useless logging across the whole application
+- Reduced the amount of useless logging across the whole application.
 
 ## 2023-11-24
 - Cut down logging and moved `!hb` command logic back into the handler
@@ -24,41 +26,41 @@ Note: This file was started on 2023-04-22. Any changes before then are not captu
 - Renamed `!grantole` to `!role`. Functionality is unaffected.
 
 ## 2023-11-11
-- Added functionality to react for gaming roles
+- Added functionality to react for gaming roles.
 
 ## 2023-11-10
-- The Among Us role is no longer granted as part of enlistment
+- The Among Us role is no longer granted as part of enlistment.
 
 ## 2023-10-27
 - Moved the channel check for event announcements to the handler method, which prevents invocation on every message sent in the discord
 - Upped the femboy chance from 3 to 6 percent
-- Added unreact funcionality - replying to an event announcement with 'unreact' will remove all bot reactions on the message provided there is a least one other reaction per reaction
+- Added unreact funcionality - replying to an event announcement with 'unreact' will remove all bot reactions on the message provided there is a least one other reaction per reaction.
 
 ## 2023-10-25
 - Removed unused LEADERSHIP_ROLES enum
-- Fixed !attend error handing method being incorrectly named
+- Fixed !attend error handing method being incorrectly named.
 
 ## 2023-10-12
 - Improved error logging in !attend
 - !attend will no longer print out the ID of a user while searching the sheet
-- Fixed file path to sheets keys to comply with new hosting restrictions
+- Fixed file path to sheets keys to comply with new hosting restrictions.
 
 ## 2023-09-09
-- Fixed a bug around reporting failed users in the !attend command (failed users should now report correctly)
+- Fixed a bug around reporting failed users in the `!attend` command (failed users should now report correctly).
 
 ## 2023-09-02
-- Added secrets and functionality for PROD release of !attend
-- Improved logging and error handling in !attend
+- Added secrets and functionality for PROD release of `!attend`
+- Improved logging and error handling in `!attend`
 
 ## 2023-07-01
 - Removed an unneeded newline character in the enlistment message
-- Tidied up sheets_manager and the attend command handler
+- Tidied up sheets_manager and the attend command handler.
 
 ## 2023-06-24
 - Removed 'Medal Automation' as a planned feature in README.md
 - Updated README.md with additional contact information
 - Added base structure for accessing Google Docs through the !attend command
-- Added first implementation of !attend
+- Added first implementation of `!attend`.
 
 ## 2023-06-14
 - Updated discord.py version to fix issues with the latest discord update

@@ -88,8 +88,8 @@ async def enlist_error(ctx, error):
 
 # !role <type> <user> - Add or remove Merc/Rep/Visitor tags from a user.
 @bot.command(name="role",
-        help="Add or remove Merc/Rep/Visitor roles. Accepts a single member mention as an argument. Role type ('rep', 'merc', or 'visitor') must be defined or else command will fail. If the member already has the specific role, it will be removed.\nUsage: !grantrole merc/rep/visitor @<member>",
-        brief="Adds or removes Merc, Rep, or Visitor roles on a member"
+        help="Grant Merc/Rep/Visitor roles. Accepts a single member mention as an argument. Role type ('rep', 'merc', or 'visitor') must be defined or else command will fail. \nUsage: !grantrole merc/rep/visitor @<member>",
+        brief="Adds Merc, Rep, or Visitor roles to a member"
         )
 @has_role(enums.BOT_USER_ROLE)
 async def grant_role_handler(ctx, roleType, user: discord.User):

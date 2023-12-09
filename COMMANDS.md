@@ -8,7 +8,7 @@ Heartbeat, returns the uptime of the bot. Just something I use for debug to ensu
 Will add all the Recruit roles to the @'d user. Will not work on users that are already enlisted.
 
 ### !role <merc/rep/visitor> <@user>
-Adds or removes the merc/rep/visitor role on a user, depending on whether or not they already have it.
+Adds the merc/rep/visitor role to a user.
 
 ### !attend
 Updates the 'Last Seen' dates on the master doc for the users currently connected to the invoker's voice channel. Can only be used in a voice channel otherwise command will fail.
