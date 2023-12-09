@@ -20,10 +20,11 @@ async def add_or_remove_gaming_role(bot, payload, remove_unrelated = True):
     else:
         if remove_unrelated:
             await remove_reaction_from_message(payload)
-        else:
-            return
 
 
+# Remove unrelated reactions from the message
+# This only fires if remove_unrelated is TRUE. This is set to FALSE when the on_reaction_remove handler is called
+# to prevent unwanted looping. 
 async def remove_reaction_from_message(payload):
     channel = await payload.member.guild.fetch_channel(payload.channel_id)
     message = await channel.fetch_message(payload.message_id)
@@ -31,4 +32,3 @@ async def remove_reaction_from_message(payload):
     for reaction in message.reactions:
         if (payload.emoji.is_custom_emoji and reaction.emoji == payload.emoji) or reaction.emoji == payload.emoji.name:
             await reaction.remove(payload.member)
-            return
