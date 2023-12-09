@@ -17,8 +17,6 @@ Updates the 'Last Seen' dates on the master doc for the users currently connecte
 ### Signups Automation 
 The bot will automatically add reactions to posts in #⁠📢event-announcements as long as it has one or more of the following emojis: :RegimentalColours:, :KingsColours:, or :UnionColours:.
 Replying to a message with 'unreact' will remove the bot's reactions. Note reactions will only be removed if at least one other user has also reacted with that emoji.
-### Femboys!
-The bot has a 3% chance to respond to users who mention 'femboy' in the discord. Just a wee easter egg.
 ### Welcome DMs
 The bot will automatically send a welcome message to any new members who join the discord.
 ### Gaming Reactions

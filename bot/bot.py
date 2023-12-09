@@ -35,10 +35,9 @@ async def on_member_join(member):
 
 @bot.event
 async def on_message(message):
-    await funcs.check_if_message_has_femboy(message)
     if message.channel.id == 744708888250810459:
         bot_user = await bot.fetch_user(bot.application_id)
-        await funcs.check_and_put_signup_reactions(message, bot_user)
+        await funcs.add_or_remove_signup_reactions(message, bot_user)
     await bot.process_commands(message)
 
 
