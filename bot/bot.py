@@ -79,16 +79,16 @@ async def enlist_member_handler(ctx, user: discord.Member):
 # Error handling for !enlist
 @enlist_member_handler.error
 async def enlist_error(ctx, error):
-    logger.info(f'Encountered error in !enlist invocation by user {ctx.author.name} ({ctx.author.id}) - {error}')
+    logger.info(f'Encountered error in !enlist invocation by {ctx.author.name} ({ctx.author.id}) - {error}')
     if isinstance(error, errors.MissingPermissions) or isinstance(error, errors.MissingRole):
         await ctx.channel.send(f'Oi <@{ctx.author.id}>! You don\'t have permission to do that! :angry:')
     elif isinstance(error, errors.MissingRequiredArgument):
-        await ctx.channel.send(f'<@{ctx.author.id}>, you need to specify a user to enlist, like this: \n**!enlist <@user>**')
+        await ctx.channel.send(f'<@{ctx.author.id}>, you need to specify a member to enlist, like this: \n**!enlist <@member>**')
 
 
 # !role <type> <user> - Add or remove Merc/Rep/Visitor tags from a user.
 @bot.command(name="role",
-        help="Add or remove Merc/Rep/Visitor roles. Accepts a single member mention as an argument. Role type ('rep', 'merc', or 'visitor') must be defined or else command will fail. If the user already has the specific role, it will be removed.\nUsage: !grantrole merc/rep/visitor @<member>",
+        help="Add or remove Merc/Rep/Visitor roles. Accepts a single member mention as an argument. Role type ('rep', 'merc', or 'visitor') must be defined or else command will fail. If the member already has the specific role, it will be removed.\nUsage: !grantrole merc/rep/visitor @<member>",
         brief="Adds or removes Merc, Rep, or Visitor roles on a member"
         )
 @has_role(enums.BOT_USER_ROLE)
@@ -99,16 +99,16 @@ async def grant_role_handler(ctx, roleType, user: discord.User):
 # Error handling for !role
 @grant_role_handler.error
 async def grant_role_error(ctx, error):
-    logger.info(f'Encountered error in !role invocation by user {ctx.author.name} ({ctx.author.id}) - {error}')
+    logger.info(f'Encountered error in !role invocation by {ctx.author.name} ({ctx.author.id}) - {error}')
     if isinstance(error, errors.MissingPermissions) or isinstance(error, errors.MissingRole):
         await ctx.channel.send(f'Oi <@{ctx.author.id}>! You don\'t have permission to do that! :angry:')
     elif isinstance(error, errors.MissingRequiredArgument):
-        await ctx.channel.send(f'<@{ctx.author.id}>, you need to specify both a role type and user, like this: \n**!role <merc/rep/visitor> <@user>**')
+        await ctx.channel.send(f'<@{ctx.author.id}>, you need to specify both a role type and member, e.g. **!role <merc/rep/visitor> <@member>**')
 
 
 # !attendance - Take an attendance count and update the Master Doc. User needs to be in a voice channel for this command to work.
 @bot.command(name="attend",
-        help="Update the master document's 'Last Seen' column with users currently in the voice channel. Can be used in any text channel the bot has scope to, but the invoker must be present in the voice call.",
+        help="Update the master document's 'Last Seen' column with members currently in the voice channel. Can be used in any text channel the bot has access to, but the invoker must be present in the voice call.",
         brief="Take an attendance count"
         )
 @has_role(enums.BOT_USER_ROLE)
@@ -119,13 +119,13 @@ async def attend_handler(ctx):
 # Error handling for !attend
 @attend_handler.error
 async def attend_error(ctx, error):
-    logger.info(f'Encountered error in !attend invocation by user {ctx.author.name} ({ctx.author.id}) - {error}')
+    logger.info(f'Encountered error in !attend invocation by {ctx.author.name} ({ctx.author.id}) - {error}')
     if isinstance(error, errors.MissingPermissions) or isinstance(error, errors.MissingRole):
         await ctx.channel.send(f'Oi <@{ctx.author.id}>! You don\'t have permission to do that! :angry:')
     if isinstance(error, errors.CommandInvokeError):
         await ctx.channel.send(f'<@{ctx.author.id}>, there was an error with that invocation: {error}')
     if isinstance(error, FileNotFoundError):
-        await ctx.channel.send(f'<@{ctx.author.id}>, I cannot get the authentication keys for the sheet. Please check the logs or contact Spammy!')
+        await ctx.channel.send(f'<@{ctx.author.id}>, I got an authentication error. Please check the logs or contact Spammy!')
 
 
 # Run the bot

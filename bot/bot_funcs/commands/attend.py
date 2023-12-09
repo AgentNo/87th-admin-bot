@@ -5,7 +5,7 @@ from utility.setup_logger import logger
 
 
 async def attend(ctx):
-    logger.info(f"!attend triggered by user {ctx.author.name} ({ctx.author.id}) in channel {ctx.author.voice.channel.id}")
+    logger.info(f"!attend triggered by {ctx.author.name} ({ctx.author.id}) in channel {ctx.author.voice.channel.id}")
     await ctx.channel.send(f"Taking attendance for {len(ctx.author.voice.channel.members)} members, sit tight...")
     __secrets = await sheets_manager.get_master_doc_secrets()
     gdoc = await sheets_manager.get_master_doc_connection(__secrets["SHEETS_KEY"])
