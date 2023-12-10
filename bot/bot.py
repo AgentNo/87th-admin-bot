@@ -2,7 +2,7 @@
 # Main entrypoint for the admin bot.
 
 from discord.ext.commands import has_role
-from discord.ext import commands
+from discord.ext import commands, tasks
 from discord.ext.commands import errors
 from dotenv import load_dotenv
 import discord
@@ -11,7 +11,7 @@ import datetime
 import os
 
 import bot_funcs as funcs
-import utility.enums as enums
+import utility.configs as configs
 from utility.setup_logger import logger 
 
 
@@ -22,10 +22,13 @@ intents.members = True
 intents.message_content = True
 bot = commands.Bot(intents=intents, command_prefix='!')
 startTime = time.time()
+event_announcement_time = datetime.time(hour=8, minute=0)
+
 
 @bot.event
 async def on_ready():
     logger.info(f'{bot.user} has connected to the following guilds: ' + ', '.join(guild.name for guild in bot.guilds))
+    send_event_announcement.start()
 
 
 @bot.event
@@ -71,7 +74,7 @@ async def heartbeat_handler(ctx):
         help="Enlist a member and grant basic recruit roles. Accepts a single member mention as an argument. Will fail when attempting to enlist a member with the 87th Regiment of Foot role.\nUsage: !enlist @<member>",
         brief="Enlist a member and grant basic recruit roles"
         )
-@has_role(enums.BOT_USER_ROLE)
+@has_role(configs.BOT_USER_ROLE)
 async def enlist_member_handler(ctx, user: discord.Member):
     await funcs.enlist_member(ctx, user)
 
@@ -91,7 +94,7 @@ async def enlist_error(ctx, error):
         help="Grant Merc/Rep/Visitor roles. Accepts a single member mention as an argument. Role type ('rep', 'merc', or 'visitor') must be defined or else command will fail. \nUsage: !grantrole merc/rep/visitor @<member>",
         brief="Adds Merc, Rep, or Visitor roles to a member"
         )
-@has_role(enums.BOT_USER_ROLE)
+@has_role(configs.BOT_USER_ROLE)
 async def grant_role_handler(ctx, roleType, user: discord.User):
     await funcs.grant_role(ctx, roleType, user)
 
@@ -111,7 +114,7 @@ async def grant_role_error(ctx, error):
         help="Update the master document's 'Last Seen' column with members currently in the voice channel. Can be used in any text channel the bot has access to, but the invoker must be present in the voice call.",
         brief="Take an attendance count"
         )
-@has_role(enums.BOT_USER_ROLE)
+@has_role(configs.BOT_USER_ROLE)
 async def attend_handler(ctx):
     await funcs.attend(ctx)
 
@@ -126,6 +129,11 @@ async def attend_error(ctx, error):
         await ctx.channel.send(f'<@{ctx.author.id}>, you need to use this command while connected to a voice channel ({error})')
     if isinstance(error, FileNotFoundError):
         await ctx.channel.send(f'<@{ctx.author.id}>, I got an authentication error. Please check the logs or contact Spammy!')
+
+
+@tasks.loop(time=event_announcement_time)
+async def send_event_announcement():
+    await funcs.send_event_announcement(bot)
 
 
 # Run the bot

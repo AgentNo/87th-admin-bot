@@ -1,13 +1,13 @@
 # reactions_listener.py
 # Functions related to reactions on messages
 
-import utility.enums as enums
+import utility.configs as configs
 
 
 # Handle gaming role reactions
 async def add_or_remove_gaming_role(bot, payload, remove_unrelated = True):
-    if payload.emoji.name in enums.GAME_ROLE_REACTIONS:
-        role_id = enums.GAME_ROLE_REACTIONS[payload.emoji.name]
+    if payload.emoji.name in configs.GAME_ROLE_REACTIONS:
+        role_id = configs.GAME_ROLE_REACTIONS[payload.emoji.name]
         guild = bot.get_guild(payload.guild_id)
         role = guild.get_role(role_id)
         if payload.event_type == "REACTION_ADD":

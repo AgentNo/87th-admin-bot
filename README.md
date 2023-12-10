@@ -7,17 +7,16 @@ Want to use this bot for your server or adopt similar logic? Contact spammymcjun
 
 ### Current Working Features:
 - DM new members who join the server
-- Enlist users with basic Recruit roles
-- Add or remove a user's merc, visitor, or rep roles
-- Automatically add reaction/remove sets to posts in #event-announcements
+- Enlist members with basic Recruit roles
+- Add a member's merc, visitor, or rep roles
+- Automatically send event announcements and add reaction/remove reaction sets
 - Attendance/Last Seen automation
-- Gaming roles automation
+- Community roles
 
 ### In-flight features
 N/A
 
 ### Future Features
-- Automated Event Announcements
 - Enlistment Automation
 - Attendance Automation enhancements (Additional Attendance Tracking)
 - Attendance Automation enhancements (Enlistment Data Capture)
