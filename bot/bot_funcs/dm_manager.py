@@ -6,7 +6,7 @@ from utility.setup_logger import logger
 
 # Send a welcome DM to new members that joins the server
 async def send_dm_to_new_member(member):
-    logger.info(member.name + " has joined the 87th")
+    logger.info(member.name + " has joined the server")
     await member.create_dm()
     try:
         await member.dm_channel.send(strings.DM_WELCOME_MESSAGE.format(member.name))
