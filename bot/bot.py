@@ -2,7 +2,7 @@
 # Main entrypoint for the admin bot.
 
 from discord.ext.commands import has_role
-from discord.ext import commands
+from discord.ext import commands, tasks
 from discord.ext.commands import errors
 from dotenv import load_dotenv
 import discord
@@ -22,10 +22,13 @@ intents.members = True
 intents.message_content = True
 bot = commands.Bot(intents=intents, command_prefix='!')
 startTime = time.time()
+event_announcement_time = datetime.time(hour=8, minute=0)
+
 
 @bot.event
 async def on_ready():
     logger.info(f'{bot.user} has connected to the following guilds: ' + ', '.join(guild.name for guild in bot.guilds))
+    send_event_announcement.start()
 
 
 @bot.event
@@ -126,6 +129,11 @@ async def attend_error(ctx, error):
         await ctx.channel.send(f'<@{ctx.author.id}>, you need to use this command while connected to a voice channel ({error})')
     if isinstance(error, FileNotFoundError):
         await ctx.channel.send(f'<@{ctx.author.id}>, I got an authentication error. Please check the logs or contact Spammy!')
+
+
+@tasks.loop(time=event_announcement_time)
+async def send_event_announcement():
+    await funcs.send_event_announcement(bot)
 
 
 # Run the bot

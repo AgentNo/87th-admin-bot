@@ -15,7 +15,7 @@ Updates the 'Last Seen' dates on the master doc for the users currently connecte
 
 ## Latent Features
 ### Signups Automation 
-The bot will automatically add reactions to posts in #⁠📢event-announcements as long as it has one or more of the following emojis: :RegimentalColours:, :KingsColours:, or :UnionColours:.
+The bot will automatically send announcements every morning at 8am and add reactions in #⁠📢event-announcements as long as it has one or more of the following emojis: :RegimentalColours:, :KingsColours:, or :UnionColours:.
 Replying to a message with 'unreact' will remove the bot's reactions. Note reactions will only be removed if at least one other user has also reacted with that emoji.
 ### Welcome DMs
 The bot will automatically send a welcome message to any new members who join the discord.

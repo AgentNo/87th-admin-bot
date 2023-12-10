@@ -9,15 +9,14 @@ Want to use this bot for your server or adopt similar logic? Contact spammymcjun
 - DM new members who join the server
 - Enlist members with basic Recruit roles
 - Add a member's merc, visitor, or rep roles
-- Automatically add reaction/remove reaction sets to posts in #event-announcements
+- Automatically send event announcements and add reaction/remove reaction sets
 - Attendance/Last Seen automation
 - Community roles
 
 ### In-flight features
-- Automated Event Announcements
+N/A
 
 ### Future Features
-- Automated Event Announcements
 - Enlistment Automation
 - Attendance Automation enhancements (Additional Attendance Tracking)
 - Attendance Automation enhancements (Enlistment Data Capture)

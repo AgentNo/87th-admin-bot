@@ -16,3 +16,17 @@ There are just a few housekeeping tasks to tidy up:
 
 We'll see you on the battlefield! If you have any questions, please don't hesitate to ask! ⚔️
 '''
+
+EVENT_ANNOUNCEMENT_MESSAGE = '''Good morning <@&743156110625603654>,\n
+Today we have {}:
+```
+{}
+```
+
+Please react as appropriate:
+{}
+
+See you on the battlefield! :crossed_swords:
+'''
+
+NO_EVENTS_MESSAGE = "Good morning 87th! Today we have no events scheduled. See you tomorrow! :crossed_swords:"
