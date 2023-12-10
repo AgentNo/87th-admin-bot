@@ -1,6 +1,9 @@
 # Changelog for 87th Admin Bot
 Note: This file was started on 2023-04-22. Any changes before then are not captured.
 
+## 2023-12-10
+- Updated README
+
 ## 2023-12-09
 - Changed name of signup function to better reflect its purpose (`check_and_put_signup_reactions` -> `add_or_remove_signup_reactions`)
 - Removed the femboy easter egg. Was a joke that overstayed its welcome
