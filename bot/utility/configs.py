@@ -38,12 +38,12 @@ EVENT_ANNOUNCEMENT_CONFIG = {
         "numEvents": 0
     },
     "Tuesday": {
-        "numEvents": "2 events",
+        "numEvents": "two events",
         "eventBody": "- 19:00 GMT / 14:00 EST: 63e Tuesday Siege\n- 20:00 GMT / 15:00 EST: Tuesday EU8 Public Linebattle",
         "reactions": "<:RegimentalColours:863525506779054120> if you are attending the 63e event\n❓ if you are unsure of your attendance\n❌ if you cannot attend today\n<:KingsColours:863525505515782184> if you are attending the Public Linebattle\n❔ if you are unsure of your attendance\n❎ if you cannot attend today"
     },
     "Wednesday": {
-        "numEvents": "2 events",
+        "numEvents": "two events",
         "eventBody": "- 19:00 GMT / 14:00 EST: 51st Wednesday Linebattle\n- 20:00 GMT / 15:00 EST: Wednesday EU8 Public Linebattle",
         "reactions": "<:RegimentalColours:863525506779054120> if you are attending the 51st event\n❓ if you are unsure of your attendance\n❌ if you cannot attend today\n<:KingsColours:863525505515782184> if you are attending the Public Linebattle\n❔ if you are unsure of your attendance\n❎ if you cannot attend today"
     },
@@ -51,17 +51,17 @@ EVENT_ANNOUNCEMENT_CONFIG = {
         "numEvents": 0
     },
     "Friday": {
-        "numEvents": "1 event",
+        "numEvents": "one event",
         "eventBody": "- 19:00 GMT / 14:00 EST: 28steON Friday Linebattle",
         "reactions": "<:RegimentalColours:863525506779054120> if you are attending the 28steON event\n❓ if you are unsure of your attendance\n❌ if you cannot attend today"
     },
     "Saturday": {
-        "numEvents": "1 event",
+        "numEvents": "one event",
         "eventBody": "- 20:00 GMT / 15:00 EST: 26th Saturday Linebattle",
         "reactions": "<:RegimentalColours:863525506779054120> if you are attending the 26th event\n❓ if you are unsure of your attendance\n❌ if you cannot attend today" 
     },
     "Sunday": {
-        "numEvents": "2 events",
+        "numEvents": "two events",
         "eventBody": "- 19:00 GMT / 14:00 EST: KRA Sunday Linebattle\n- 20:00 GMT / 15:00 EST: Sunday EU8 Public Linebattle",
         "reactions": "<:RegimentalColours:863525506779054120> if you are attending the KRA event\n❓ if you are unsure of your attendance\n❌ if you cannot attend today\n<:KingsColours:863525505515782184> if you are attending the Public Linebattle\n❔ if you are unsure of your attendance\n❎ if you cannot attend today"
     }
