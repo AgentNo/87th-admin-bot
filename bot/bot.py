@@ -22,7 +22,7 @@ intents.members = True
 intents.message_content = True
 bot = commands.Bot(intents=intents, command_prefix='!')
 startTime = time.time()
-event_announcement_time = datetime.time(hour=8, minute=0)
+event_announcement_time = datetime.time(hour=7, minute=30)
 
 
 @bot.event
