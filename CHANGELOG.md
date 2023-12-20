@@ -1,6 +1,9 @@
 # Changelog for 87th Admin Bot
 Note: This file was started on 2023-04-22. Any changes before then are not captured.
 
+## 2023-12-20
+- Temporarily turning off event announcements for Christmas break
+
 ## 2023-12-15
 - Updated event announcement text
 - Changed event time from 8am to 7.30am GMT
