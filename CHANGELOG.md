@@ -2,7 +2,7 @@
 Note: This file was started on 2023-04-22. Any changes before then are not captured.
 
 ## 2023-12-29
-- Added Lethal Company as an option to community roles
+- Added Lethal Company and Valheim as options to community roles
 
 ## 2023-12-20
 - Temporarily turning off event announcements for Christmas break

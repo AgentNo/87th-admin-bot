@@ -42,7 +42,6 @@ async def on_message(message):
         bot_user = await bot.fetch_user(bot.application_id)
         await funcs.add_or_remove_signup_reactions(message, bot_user)
     await bot.process_commands(message)
-    print(message)
 
 
 @bot.event
