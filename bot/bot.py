@@ -28,7 +28,7 @@ event_announcement_time = datetime.time(hour=7, minute=30)
 @bot.event
 async def on_ready():
     logger.info(f'{bot.user} has connected to the following guilds: ' + ', '.join(guild.name for guild in bot.guilds))
-    #send_event_announcement.start()
+    send_event_announcement.start()
 
 
 @bot.event
@@ -131,9 +131,9 @@ async def attend_error(ctx, error):
         await ctx.channel.send(f'<@{ctx.author.id}>, I got an authentication error. Please check the logs or contact Spammy!')
 
 
-# @tasks.loop(time=event_announcement_time)
-# async def send_event_announcement():
-#     await funcs.send_event_announcement(bot)
+@tasks.loop(time=event_announcement_time)
+async def send_event_announcement():
+    await funcs.send_event_announcement(bot)
 
 
 # Run the bot

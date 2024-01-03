@@ -1,6 +1,9 @@
 # Changelog for 87th Admin Bot
 Note: This file was started on 2023-04-22. Any changes before then are not captured.
 
+## 2023-01-03
+- Re-enabled event announcements
+
 ## 2023-12-29
 - Added Lethal Company and Valheim as options to community roles
 
