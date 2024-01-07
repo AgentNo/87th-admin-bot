@@ -1,6 +1,9 @@
 # Changelog for 87th Admin Bot
 Note: This file was started on 2023-04-22. Any changes before then are not captured.
 
+## 2023-01-07
+- Removed Wednesday Public Linebattle from announcements config
+
 ## 2023-01-03
 - Re-enabled event announcements
 
