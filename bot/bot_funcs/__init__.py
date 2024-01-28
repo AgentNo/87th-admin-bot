@@ -9,4 +9,7 @@ from bot_funcs.sheets_manager import get_master_doc_connection
 from bot_funcs.sheets_manager import get_master_doc_secrets
 from bot_funcs.sheets_manager import search_for_member_in_sheet
 from bot_funcs.sheets_manager import update_last_seen_for_member
+from bot_funcs.sheets_manager import get_attendance_cell_for_todays_date
+from bot_funcs.sheets_manager import update_total_attendance_for_date
+from bot_funcs.sheets_manager import get_total_attendance_for_date
 from bot_funcs.reactions_listener import add_or_remove_gaming_role

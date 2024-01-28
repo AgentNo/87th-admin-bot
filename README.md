@@ -10,7 +10,7 @@ Want to use this bot for your server or adopt similar logic? Contact spammymcjun
 - Enlist members with basic Recruit roles
 - Add a member's merc, visitor, or rep roles
 - Automatically send event announcements and add reaction/remove reaction sets
-- Attendance/Last Seen automation
+- Total Attendance/Last Seen automation
 - Community roles
 
 ### In-flight features
@@ -18,8 +18,6 @@ N/A
 
 ### Future Features
 - Enlistment Automation
-- Attendance Automation enhancements (Additional Attendance Tracking)
 - Attendance Automation enhancements (Enlistment Data Capture)
 
 Repo Owner/Maintainer: AgentNo (spammymcjunkmail)
-Contributors: N/A

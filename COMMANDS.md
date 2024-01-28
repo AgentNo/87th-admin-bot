@@ -11,7 +11,7 @@ Will add all the Recruit roles to the @'d user. Will not work on users that are 
 Adds the merc/rep/visitor role to a user.
 
 ### !attend
-Updates the 'Last Seen' dates on the master doc for the users currently connected to the invoker's voice channel. Can only be used in a voice channel otherwise command will fail.
+Updates the 'Last Seen' dates on the master doc for the users currently connected to the invoker's voice channel, and updates the attendance sheet with the total number of members in the call. Can only be used in a voice channel otherwise command will fail.
 
 ## Latent Features
 ### Signups Automation 
