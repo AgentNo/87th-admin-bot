@@ -38,9 +38,9 @@ EVENT_ANNOUNCEMENT_CONFIG = {
         "numEvents": 0
     },
     "Tuesday": {
-        "numEvents": "two events",
-        "eventBody": "- 19:00 GMT / 14:00 EST: 63e Tuesday Siege\n- 20:00 GMT / 15:00 EST: Tuesday EU8 Public Linebattle",
-        "reactions": "<:RegimentalColours:863525506779054120> if you are attending the 63e event\n❓ if you are unsure of your attendance\n❌ if you cannot attend today\n<:KingsColours:863525505515782184> if you are attending the Public Linebattle\n❔ if you are unsure of your attendance\n❎ if you cannot attend today"
+        "numEvents": "one event",
+        "eventBody": "- 19:00 GMT / 14:00 EST: 63e Tuesday Siege",
+        "reactions": "<:RegimentalColours:863525506779054120> if you are attending the 63e event\n❓ if you are unsure of your attendance\n❌ if you cannot attend today"
     },
     "Wednesday": {
         "numEvents": "one event",
@@ -61,9 +61,9 @@ EVENT_ANNOUNCEMENT_CONFIG = {
         "reactions": "<:RegimentalColours:863525506779054120> if you are attending the 26th event\n❓ if you are unsure of your attendance\n❌ if you cannot attend today" 
     },
     "Sunday": {
-        "numEvents": "two events",
-        "eventBody": "- 19:00 GMT / 14:00 EST: KRA Sunday Linebattle\n- 20:00 GMT / 15:00 EST: Sunday EU8 Public Linebattle",
-        "reactions": "<:RegimentalColours:863525506779054120> if you are attending the KRA event\n❓ if you are unsure of your attendance\n❌ if you cannot attend today\n<:KingsColours:863525505515782184> if you are attending the Public Linebattle\n❔ if you are unsure of your attendance\n❎ if you cannot attend today"
+        "numEvents": "one event",
+        "eventBody": "- 19:00 GMT / 14:00 EST: KRA Sunday Linebattle",
+        "reactions": "<:RegimentalColours:863525506779054120> if you are attending the KRA event\n❓ if you are unsure of your attendance\n❌ if you cannot attend today"
     }
 }
 

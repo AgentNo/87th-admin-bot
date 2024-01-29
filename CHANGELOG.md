@@ -1,6 +1,9 @@
 # Changelog for 87th Admin Bot
 Note: This file was started on 2023-04-22. Any changes before then are not captured.
 
+## 2024-01-29
+- Removed public linebattles from the event schedule
+
 ## 2024-01-28
 - Integrated the attendance tracking sheet with the bot: now `!attend` will also record the total number of attendees 
 - Since people often drop in and out of the call, `!attend` will not overwrite the total number if it is greater than the current number in the call
