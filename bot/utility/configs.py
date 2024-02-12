@@ -43,9 +43,7 @@ EVENT_ANNOUNCEMENT_CONFIG = {
         "reactions": "<:RegimentalColours:863525506779054120> if you are attending the 63e event\n❓ if you are unsure of your attendance\n❌ if you cannot attend today"
     },
     "Wednesday": {
-        "numEvents": "one event",
-        "eventBody": "- 19:00 GMT / 14:00 EST: 51st Wednesday Linebattle",
-        "reactions": "<:RegimentalColours:863525506779054120> if you are attending the 51st event\n❓ if you are unsure of your attendance\n❌ if you cannot attend today"
+        "numEvents": 0
     },
     "Thursday": {
         "numEvents": 0
